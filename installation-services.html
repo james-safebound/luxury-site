@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Installation Services — Safebound Luxury | White-Glove Furniture & Art Installation</title>
+  <meta name="description" content="White-glove furniture installation, art hanging, and full room staging for luxury residential and commercial projects across South Florida. Trained specialists, zero-damage guarantee." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Service Page Specific ── */
+    .service-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .service-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img-fineart.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.35);
+    }
+    .service-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,1) 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.1) 100%);
+    }
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      width: 100%;
+    }
+    .service-breadcrumb {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-breadcrumb a { color: var(--gold); }
+    .service-breadcrumb .crumb-sep { opacity: 0.4; }
+    .service-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .service-hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--text);
+      margin-bottom: 28px;
+      max-width: 800px;
+    }
+    .service-hero-headline em { font-style: italic; color: var(--gold); }
+    .service-hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(232,228,220,0.75);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .service-hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Service Stats Bar ── */
+    .service-stats {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .service-stats-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      divide-x: 1px solid var(--border);
+    }
+    .service-stat {
+      padding: 32px 0;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .service-stat:last-child { border-right: none; }
+    .service-stat-num {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .service-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Intro Section ── */
+    .service-intro {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .service-intro-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .service-intro-left {}
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .section-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .section-headline em { font-style: italic; }
+    .section-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(232,228,220,0.7);
+      margin-bottom: 20px;
+    }
+    .service-intro-right {}
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-item:first-child { border-top: 1px solid var(--border); }
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 18px;
+      margin-top: 2px;
+    }
+    .feature-item h4 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .feature-item p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── What We Do Section ── */
+    .service-what {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .service-what-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .service-what-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .what-card {
+      background: var(--bg-2);
+      padding: 40px 36px;
+    }
+    .what-num {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(201,169,110,0.2);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .what-card h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .what-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── Process Section ── */
+    .service-process {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .service-process-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .process-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 80px 1px 1fr;
+      gap: 0 40px;
+      padding: 40px 0;
+      position: relative;
+    }
+    .timeline-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 39px;
+      top: 80px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-num {
+      font-family: var(--font-sans);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+    .timeline-line {
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-content {
+      padding-top: 6px;
+    }
+    .timeline-content h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .timeline-content p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+
+    /* ── For Who Section ── */
+    .service-for {
+      padding: 100px 0;
+      background: var(--bg-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .service-for-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .service-for-left h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .service-for-left p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .client-type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+    }
+    .client-type {
+      background: var(--bg-3);
+      padding: 28px 24px;
+    }
+    .client-type-icon { font-size: 20px; margin-bottom: 10px; }
+    .client-type h4 {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .client-type p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── FAQ Section ── */
+    .service-faq {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .service-faq-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 80px;
+    }
+    .faq-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.5vw, 46px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .faq-header p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 500;
+      text-align: left;
+      padding: 24px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-chevron {
+      font-size: 12px;
+      color: var(--gold);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      padding-bottom: 24px;
+      max-width: 580px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA Band ── */
+    .service-cta-band {
+      padding: 100px 0;
+      background: var(--bg-2);
+      border-top: 1px solid rgba(201,169,110,0.15);
+      text-align: center;
+    }
+    .service-cta-band h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .service-cta-band h2 em { font-style: italic; color: var(--gold); }
+    .service-cta-band p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Related Services ── */
+    .related-services {
+      padding: 80px 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .related-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .related-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .related-card {
+      background: var(--bg);
+      padding: 32px 28px;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .related-card:hover { background: var(--bg-2); }
+    .related-card-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .related-card h4 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .related-card p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .related-arrow {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .service-stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .service-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .service-stat:nth-child(odd) { border-right: 1px solid var(--border); }
+      .service-intro-inner { grid-template-columns: 1fr; gap: 48px; }
+      .what-grid { grid-template-columns: 1fr; }
+      .service-for-inner { grid-template-columns: 1fr; gap: 48px; }
+      .service-faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .service-hero-content { padding: 60px 24px; }
+      .service-stats-inner { grid-template-columns: 1fr 1fr; padding: 0 24px; }
+      .service-intro-inner,
+      .service-what-inner,
+      .service-process-inner,
+      .service-for-inner,
+      .service-faq-inner,
+      .related-inner { padding: 0 24px; }
+      .client-type-grid { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .timeline-step { grid-template-columns: 48px 1px 1fr; gap: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span class="announce-group announce-parent">
+        A division of <a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving &amp; Storage</a>
+      </span>
+|</span>
+      <span class="announce-group">
+        <span class="dot">◆</span> West Palm Beach
+        <span class="sep">·</span> Boca Raton
+        <span class="sep">·</span> Wellington
+      </span>
+|</span>
+      <span class="announce-group">Fully Licensed &amp; Insured · USDOT 2900155</span>
+|
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo logo-img">
+      <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:5615595376" class="nav-phone">☎ 561.559.5376</a>
+      <a href="index.html#contact" class="btn-quote">Request Quote <span>›</span></a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav">
+    <ul>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="tel:5615595376" class="gold">☎ 561.559.5376</a></li>
+      <li><a href="index.html#contact" class="btn-quote-mobile">Request a Private Quote</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="crumb-sep">›</span>
+        <a href="index.html#services">Services</a>
+        <span class="crumb-sep">›</span>
+        <span>Installation Services</span>
+      </div>
+      <p class="service-eyebrow">— Service · Installation &amp; Placement</p>
+      <h1 class="service-hero-headline">Placed with<br /><em>Precision.</em></h1>
+      <p class="service-hero-sub">White-glove furniture installation, art hanging, and full room staging — executed by trained specialists who understand that how something is placed is as important as what it is.</p>
+      <div class="service-hero-cta">
+        <a href="index.html#contact" class="btn-primary">Let's Talk <span>→</span></a>
+        <a href="#what-we-do" class="btn-ghost">What We Do <span>↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="service-stats">
+    <div class="service-stats-inner">
+      <div class="service-stat">
+        <span class="service-stat-num">100+</span>
+        <span class="service-stat-label">Trained Installation Specialists</span>
+      </div>
+      <div class="service-stat">
+        <span class="service-stat-num">Zero</span>
+        <span class="service-stat-label">Damage Policy</span>
+      </div>
+      <div class="service-stat">
+        <span class="service-stat-num">Est. 2021</span>
+        <span class="service-stat-label">Luxury Division</span>
+      </div>
+      <div class="service-stat">
+        <span class="service-stat-num">24/7</span>
+        <span class="service-stat-label">Project Coordination</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section class="service-intro">
+    <div class="service-intro-inner">
+      <div class="service-intro-left">
+        <p class="section-label">— What Installation Services Means</p>
+        <h2 class="section-headline">The final step<br />done <em>right.</em></h2>
+        <p class="section-body">Installation is where a project becomes real — and where it can go wrong. A single scratch on a custom sofa, a piece hung an inch off-center, furniture placed without regard for the designer's intent — these aren't small mistakes on a luxury project. They're costly ones.</p>
+        <p class="section-body">Safebound Luxury's installation team operates as an extension of your design team. We study your floor plan, follow your placement guide, protect every surface in the home, and work until the last piece is exactly where it belongs.</p>
+        <p class="section-body">From single-room furniture placement to full estate installations spanning multiple floors and hundreds of pieces, we run the process — so you don't have to.</p>
+      </div>
+      <div class="service-intro-right">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Furniture Placement &amp; Assembly</h4>
+              <p>Every piece unwrapped, assembled where required, and placed precisely per your floor plan. Blankets and runners protect floors and walls throughout.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Art Hanging &amp; Gallery Installation</h4>
+              <p>Trained art handlers hang pieces at the correct height, angle, and hardware for each wall type. We work from your spec sheet or coordinate directly with your designer.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Full Room &amp; Estate Staging</h4>
+              <p>Multi-room and multi-floor installations managed as a single coordinated project. Every room signed off before we move to the next.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Debris &amp; Packing Removal</h4>
+              <p>All packaging, wrapping, and packing materials removed and disposed of. We leave the home the way the designer intends it to look — not the way freight arrives.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Designer &amp; GC Coordination</h4>
+              <p>We work directly from your placement guide, room-by-room spec, or floor plan. Direct communication with your project manager keeps install day frictionless.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="service-what" id="what-we-do">
+    <div class="service-what-inner">
+      <div class="service-what-header">
+        <p class="section-label">— The Full Scope</p>
+        <h2 class="section-headline">Everything install<br />day <em>demands.</em></h2>
+      </div>
+      <div class="what-grid">
+        <div class="what-card">
+          <div class="what-num">01</div>
+          <h3>Furniture Placement</h3>
+          <p>Every piece delivered to the exact room, position, and orientation specified. We work from your placement guide or floor plan and flag discrepancies before anything is set down permanently.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">02</div>
+          <h3>Furniture Assembly</h3>
+          <p>Flat-pack, kit-form, or knocked-down pieces assembled on site by our team. No subcontractors, no handoffs — the same specialists who delivered it assemble it.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">03</div>
+          <h3>Art &amp; Mirror Hanging</h3>
+          <p>Framed art, mirrors, sculptural wall pieces, and gallery arrangements hung precisely and securely. We assess wall type, anchor correctly, and hang at your specified height.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">04</div>
+          <h3>Drapery &amp; Soft Goods Installation</h3>
+          <p>Window treatments, drapery hardware, upholstered headboards, and soft furnishings placed by specialists who understand how these pieces need to hang and sit.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">05</div>
+          <h3>Room Staging &amp; Styling Support</h3>
+          <p>Working alongside your design team or from a detailed spec, we stage each room — pillows, accessories, books, objects — until the space looks exactly as designed.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">06</div>
+          <h3>Full Estate &amp; Multi-Floor Rollouts</h3>
+          <p>Large-scale installations across multiple rooms, floors, or properties managed as a single coordinated engagement. One point of contact, one schedule, zero dropped balls.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="service-process">
+    <div class="service-process-inner">
+      <div class="process-header">
+        <p class="section-label">— How It Works</p>
+        <h2 class="section-headline">From schedule to<br /><em>finished room.</em></h2>
+      </div>
+      <div class="process-timeline">
+        <div class="timeline-step">
+          <div class="timeline-num">01</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Pre-Installation Planning</h3>
+            <p>We review your floor plan, placement guide, and room-by-room spec sheet before a single piece leaves the warehouse. Our team walks the job site when possible, confirms access, elevator reservations, and protection requirements — so install day has no surprises.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">02</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Surface Protection Setup</h3>
+            <p>Before any furniture enters the home, our team lays floor runners, corner guards, and wall protection throughout the delivery path and in every installation room. Nothing moves until the property is fully protected.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">03</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Staged Delivery by Room</h3>
+            <p>Pieces arrive in installation sequence — organized by room and floor. We don't unload everything and sort it out inside. Each delivery run brings exactly what the next room needs, keeping the home clean and organized throughout.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">04</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Placement, Assembly &amp; Hanging</h3>
+            <p>Furniture is unwrapped, assembled where needed, and placed per your specification. Art and mirrors are hung at the correct height and angle. Soft goods are dressed and styled. Every piece is handled by the same trained specialists from start to finish.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">05</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Room-by-Room Sign-Off</h3>
+            <p>Before moving to the next room, our project lead does a final walkthrough with your designer or representative. Any adjustments are made on the spot. Nothing is closed out until you approve it.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">06</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Debris Removal &amp; Final Walkthrough</h3>
+            <p>All packing materials, wrapping, and debris are removed from the property. Our team does a final pass of every room, protections are removed, and we leave the home exactly as the designer intends it to look.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="service-for">
+    <div class="service-for-inner">
+      <div class="service-for-left">
+        <p class="section-label">— Who We Work With</p>
+        <h2>Who we install<br /><em>for.</em></h2>
+        <p>Installation day is when every client is most exposed. Here's who trusts us with their most important projects — and what they need from us.</p>
+        <a href="index.html#contact" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">Let's Talk <span>→</span></a>
+      </div>
+      <div class="client-type-grid">
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Interior Designers</h4>
+          <p>Your install day is your client reveal. We execute your placement spec exactly — so the space your client sees for the first time looks exactly as you designed it.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Luxury Builders &amp; GCs</h4>
+          <p>Furniture and finish installations that coordinate with your construction schedule, punch list, and trade access windows. We don't create problems — we close them.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Estate Managers</h4>
+          <p>Ongoing placement, seasonal rearrangement, and new acquisition installation across one or multiple properties. We operate as your permanent installation resource.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Hospitality &amp; Developers</h4>
+          <p>Unit-by-unit FF&amp;E installation for hotels, resorts, and multi-residential projects. Scaled teams, phased schedules, and a single coordinator across the entire rollout.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Art Collectors &amp; Galleries</h4>
+          <p>Fine art hanging and sculpture placement by trained art handlers. We assess anchor requirements, hanging hardware, and proper sight lines for each piece.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Luxury Brands &amp; Retail</h4>
+          <p>Showroom buildouts, flagship openings, and pop-up installations where every detail of the physical space reflects the brand. Done precisely and on deadline.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-faq">
+    <div class="service-faq-inner">
+      <div class="faq-header">
+        <p class="section-label">— Common Questions</p>
+        <h2>Everything you want<br />to <em>know.</em></h2>
+        <p style="margin-top:16px;">If you don't see your question answered here, call us directly — we're a phone call, not a form.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            Do you work directly from a designer's placement spec?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Yes — and we prefer it. We review your floor plan, room-by-room placement guide, and any spec notes before install day. If you have a detailed spec, we follow it exactly. If you'd rather direct us room-by-room on site, we work that way too. We adapt to how you run your projects.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            What do you do if something is damaged during installation?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">We operate a zero-damage policy — floors, walls, and pieces are protected throughout. In the rare event of any issue, we document it immediately, notify you, and take full responsibility. We carry professional liability coverage and do not leave a property until any issue is resolved to your satisfaction.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Can you install pieces that came from other carriers or warehouses?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Yes. While we prefer to handle the full chain from receiving through installation, we can absolutely install pieces that were delivered or stored by others. We'll do a pre-installation inspection of each piece and note any pre-existing damage before we begin.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            How do you handle art hanging specifically?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Our art handlers assess wall type, stud locations, and anchor requirements before hanging anything. We hang at your specified height — typically 57" to center as the standard, or custom per your spec. For heavy or valuable pieces, we use museum-grade hanging hardware. Gallery arrangements are laid out on the floor first for approval before we put a single hole in the wall.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Can you handle large-scale hospitality or multi-unit installations?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Yes — this is a core part of what we do. We scale our teams to match the scope of the project and assign a dedicated installation coordinator for large rollouts. We've executed phased installations across entire hotel floors, multi-building residential developments, and full estate furnishings over multi-week engagements.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            What areas of South Florida do you serve?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">We operate throughout Palm Beach County, Broward County, Miami-Dade, and the Keys — serving Palm Beach Island, Boca Raton, Wellington, Jupiter, Fort Lauderdale, and Miami's luxury residential and hospitality corridors. For select projects we travel nationally.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="service-cta-band">
+    <div class="container">
+      <p class="section-label" style="justify-content:center;display:flex;">— Start Your Project</p>
+      <h2>Let's talk about<br /><em>install day.</em></h2>
+      <p>Tell us about your project and timeline. We'll walk you through exactly how we'd approach it — no commitment required.</p>
+      <div class="cta-actions">
+        <a href="index.html#contact" class="btn-primary">Let's Talk <span>→</span></a>
+        <a href="tel:5615595376" class="btn-ghost">☎ Call 561.559.5376</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="related-services">
+    <div class="related-inner">
+      <p class="related-label">— Related Services</p>
+      <div class="related-grid">
+        <a href="receiving-warehouses.html" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>Receiving Warehouses</h4>
+          <p>Accept, inspect, and store every piece before install day — so nothing arrives to your job site uninspected.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>White-Glove Delivery</h4>
+          <p>Specialist delivery for furniture, art, and high-value pieces — wrapped, carried, and placed without a scratch.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>FF&amp;E Logistics</h4>
+          <p>End-to-end furniture, fixtures &amp; equipment coordination for residential, hospitality, and commercial projects.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>Art &amp; Antique Handling</h4>
+          <p>Specialist handling, custom crating, climate transport, and installation for fine art and irreplaceable pieces.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+          <p>Receiving warehouses, FF&amp;E logistics, white-glove delivery, and installation services for interior designers, builders, estates, and hospitality across South Florida and beyond.</p>
+          <p class="footer-lic">USDOT 2900155 · Fully Licensed &amp; Insured</p>
+          <div class="footer-parent-brand">
+            <span>A division of</span>
+            <a href="https://safeboundmoving.com" target="_blank" rel="noopener" class="footer-parent-link">Safebound Moving &amp; Storage →</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="receiving-warehouses.html">Receiving Warehouses</a></li>
+              <li><a href="#">Luxury Relocations</a></li>
+              <li><a href="#">White-Glove Delivery</a></li>
+              <li><a href="installation-services.html">Installation Services</a></li>
+              <li><a href="designer-services.html">Designer Services</a></li>
+              <li><a href="specialized-storage.html">Specialized Storage</a></li>
+              <li><a href="#">Art Handling</a></li>
+              <li><a href="#">Custom Crating &amp; Rigging</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#clientele">Who We Serve</a></li>
+              <li><a href="index.html#resources">Resources</a></li>
+              <li><a href="the-work.html">The Work</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Locations</h4>
+            <ul>
+              <li>West Palm Beach</li>
+              <li>Palm Beach Island</li>
+              <li>Boca Raton</li>
+              <li>Wellington</li>
+              <li>Jupiter &amp; North Palm</li>
+              <li>Fort Lauderdale</li>
+              <li>Miami</li>
+              <li>Nationwide</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Safebound Moving LLC. Safebound Luxury is a division of Safebound Moving &amp; Storage. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Your request has been received. We'll be in touch within one business day.</div>
+
+  <script src="script.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>

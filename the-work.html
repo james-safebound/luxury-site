@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Work — Safebound Luxury | Specialized Projects & Notable Pieces</title>
+  <meta name="description" content="A curated gallery of specialized projects, unique pieces, and notable engagements handled by Safebound Luxury across South Florida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Page Hero ── */
+    .work-hero {
+      padding: 120px 0 80px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .work-hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+    .work-hero-left .work-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .work-hero-left h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 6vw, 88px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--text);
+    }
+    .work-hero-left h1 em { font-style: italic; color: var(--gold); }
+    .work-hero-right p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(232,228,220,0.65);
+      margin-bottom: 20px;
+    }
+
+    /* ── Filter Bar ── */
+    .work-filters {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 76px;
+      z-index: 50;
+    }
+    .work-filters-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+    }
+    .work-filter {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 18px 24px;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .work-filter:hover { color: var(--text); }
+    .work-filter.active {
+      color: var(--gold);
+      border-bottom-color: var(--gold);
+    }
+
+    /* ── Gallery Grid ── */
+    .work-gallery {
+      padding: 80px 0 120px;
+      background: var(--bg);
+    }
+    .work-gallery-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+
+    /* ── Work Card ── */
+    .work-card {
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: background 0.2s;
+    }
+    .work-card:hover { background: var(--bg-2); }
+    .work-card-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: var(--bg-3);
+      position: relative;
+    }
+    .work-card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .work-card:hover .work-card-image img { transform: scale(1.04); }
+    .work-card-image-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(201,169,110,0.2);
+      font-family: var(--font-serif);
+      font-size: 48px;
+    }
+    .work-card-body {
+      padding: 28px 28px 32px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .work-card-category {
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .work-card-title {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .work-card-desc {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      flex: 1;
+    }
+
+    /* ── CMS Note ── */
+    .work-cms-note {
+      max-width: 1160px;
+      margin: 60px auto 0;
+      padding: 0 40px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: rgba(232,228,220,0.2);
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .work-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .work-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .work-hero-inner, .work-gallery-inner, .work-cms-note { padding: 0 24px; }
+      .work-hero { padding: 80px 0 60px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .work-filters-inner { padding: 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span class="announce-group announce-parent">
+        A division of <a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving &amp; Storage</a>
+      </span>
+      <span class="announce-divider">|</span>
+      <span class="announce-group">
+        <span class="dot">◆</span> West Palm Beach
+        <span class="sep">·</span> Boca Raton
+        <span class="sep">·</span> Wellington
+      </span>
+      <span class="announce-divider">|</span>
+      <span class="announce-group">Fully Licensed &amp; Insured · USDOT 2900155</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo logo-img">
+      <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="the-work.html" class="active">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:5615595376" class="nav-phone">☎ 561.559.5376</a>
+      <a href="index.html#contact" class="btn-quote">Request Quote <span>›</span></a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <ul>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="tel:5615595376" class="gold">☎ 561.559.5376</a></li>
+      <li><a href="index.html#contact" class="btn-quote-mobile">Request a Private Quote</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="work-hero">
+    <div class="work-hero-inner">
+      <div class="work-hero-left">
+        <p class="work-eyebrow">— The Work</p>
+        <h1>Pieces that<br />demand <em>more.</em></h1>
+      </div>
+      <div class="work-hero-right">
+        <p>Not everything fits a standard service description. This is a curated record of the specialized projects, unique pieces, and unconventional engagements that define what Safebound Luxury actually does at its highest level.</p>
+        <p>Each entry represents a real project — the kind that requires judgment, expertise, and a team that knows when to call in the right specialist.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter Bar -->
+  <!-- Webflow CMS note: filter buttons driven by Collection List category field -->
+  <div class="work-filters">
+    <div class="work-filters-inner">
+      <button class="work-filter active" data-filter="all">All</button>
+      <button class="work-filter" data-filter="fine-art">Fine Art</button>
+      <button class="work-filter" data-filter="furniture">Furniture</button>
+      <button class="work-filter" data-filter="crating">Custom Crating</button>
+      <button class="work-filter" data-filter="installation">Installation</button>
+      <button class="work-filter" data-filter="yacht">Yacht &amp; Marine</button>
+      <button class="work-filter" data-filter="estate">Estate</button>
+      <button class="work-filter" data-filter="hospitality">Hospitality</button>
+    </div>
+  </div>
+
+  <!-- Gallery -->
+  <!--
+    WEBFLOW CMS STRUCTURE — "The Work" Collection
+    Fields:
+      - Name (plain text) → work-card-title
+      - Slug (auto)
+      - Category (reference → Categories collection)
+      - Photo (image) → work-card-image
+      - Description (plain text, ~2 sentences) → work-card-desc
+      - Featured (boolean) → for homepage preview module
+      - Date (date) → for sorting
+  -->
+  <section class="work-gallery">
+    <div class="work-gallery-inner">
+      <div class="work-grid" id="work-grid">
+
+        <div class="work-card" data-category="fine-art">
+          <div class="work-card-image">
+            <img src="img-fineart.jpg" alt="Large-Format Canvas, Palm Beach Estate" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Fine Art</span>
+            <h3 class="work-card-title">Large-Format Canvas, Palm Beach Estate</h3>
+            <p class="work-card-desc">An 11-foot contemporary canvas received from a New York gallery, custom crated, climate-transported, and installed over a double-height foyer staircase using engineered rigging. Museum-grade hardware, single attempt.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="furniture">
+          <div class="work-card-image">
+            <img src="img-process.jpg" alt="1,000-Pound Marble Dining Tables" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Furniture</span>
+            <h3 class="work-card-title">1,000-Pound Marble Dining Tables</h3>
+            <p class="work-card-desc">A pair of custom Italian marble dining tables — each exceeding 500 lbs — received, stored, and installed in a Boca Raton estate. Engineered floor protection, specialized dollies, and a four-man placement team.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="crating">
+          <div class="work-card-image">
+            <img src="img-boxes.jpg" alt="Custom Crating, Sculptural Bronze Collection" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Custom Crating</span>
+            <h3 class="work-card-title">Sculptural Bronze Collection</h3>
+            <p class="work-card-desc">Fourteen bronze sculptures from a private collector's estate, each requiring bespoke foam-lined crating to accommodate irregular forms. Transported to climate storage ahead of a gallery loan.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="installation">
+          <div class="work-card-image">
+            <img src="img-storage.jpg" alt="Full Estate FF&E Install, Wellington" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Installation</span>
+            <h3 class="work-card-title">Full Estate FF&amp;E Install, Wellington</h3>
+            <p class="work-card-desc">Complete furniture and fixture installation across a 14,000 sq. ft. equestrian estate — 200+ pieces, 12 rooms, coordinated over four days from our receiving facility to final room staging.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="yacht">
+          <div class="work-card-image">
+            <img src="img-hero.jpg" alt="Superyacht Interior Refit, Fort Lauderdale" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Yacht &amp; Marine</span>
+            <h3 class="work-card-title">Superyacht Interior Refit, Fort Lauderdale</h3>
+            <p class="work-card-desc">Custom furniture and bespoke fixtures received and staged for a 160-foot superyacht interior refit at Fort Lauderdale marina. Dock-side delivery, gangway coordination, and onboard placement by our specialist team.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="hospitality">
+          <div class="work-card-image">
+            <img src="img-fleet.jpg" alt="Boutique Hotel Opening, Palm Beach" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Hospitality</span>
+            <h3 class="work-card-title">Boutique Hotel Opening, Palm Beach</h3>
+            <p class="work-card-desc">34-room boutique hotel FF&amp;E rollout — all furniture, fixtures, and artwork received, inspected, and installed across six floors in under two weeks. Phased by floor, signed off room by room.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="fine-art">
+          <div class="work-card-image">
+            <img src="img-fineart.jpg" alt="Antique Map Collection, Private Gallery" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Fine Art</span>
+            <h3 class="work-card-title">Antique Map Collection, Private Gallery</h3>
+            <p class="work-card-desc">Forty-two antique maps — some dating to the 17th century — received from an auction house, individually sleeved, climate-stored, and installed in a purpose-built private gallery with archival hanging systems.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="estate">
+          <div class="work-card-image">
+            <img src="img-fleet2.jpg" alt="Multi-Property Estate Transition, Palm Beach Island" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Estate</span>
+            <h3 class="work-card-title">Multi-Property Estate Transition, Palm Beach Island</h3>
+            <p class="work-card-desc">A family office managing transition of contents across three Palm Beach Island properties — full inventory, climate storage, and staged re-installation as renovations completed on each property over eight months.</p>
+          </div>
+        </div>
+
+        <div class="work-card" data-category="crating">
+          <div class="work-card-image">
+            <img src="img-storage.jpg" alt="Grand Piano, Ocean-View Penthouse" />
+          </div>
+          <div class="work-card-body">
+            <span class="work-card-category">Custom Crating</span>
+            <h3 class="work-card-title">Grand Piano, Ocean-View Penthouse</h3>
+            <p class="work-card-desc">A 9-foot Steinway concert grand transported to a 34th-floor penthouse with no freight elevator large enough. Coordinated crane lift, custom rigging, and a post-transit tuning specialist — delivered in one day.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="work-cms-note">
+        <!-- Webflow CMS: this grid is generated from the "The Work" Collection. Add new items via the CMS editor. -->
+        Webflow CMS Collection · "The Work" · Items update via CMS editor
+      </p>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+          <p>Receiving warehouses, FF&amp;E logistics, white-glove delivery, and installation services for interior designers, builders, estates, and hospitality across South Florida and beyond.</p>
+          <p class="footer-lic">USDOT 2900155 · Fully Licensed &amp; Insured</p>
+          <div class="footer-parent-brand">
+            <span>A division of</span>
+            <a href="https://safeboundmoving.com" target="_blank" rel="noopener" class="footer-parent-link">Safebound Moving &amp; Storage →</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="receiving-warehouses.html">Receiving Warehouses</a></li>
+              <li><a href="#">Luxury Relocations</a></li>
+              <li><a href="#">White-Glove Delivery</a></li>
+              <li><a href="installation-services.html">Installation Services</a></li>
+              <li><a href="designer-services.html">Designer Services</a></li>
+              <li><a href="specialized-storage.html">Specialized Storage</a></li>
+              <li><a href="#">Art Handling</a></li>
+              <li><a href="#">Custom Crating &amp; Rigging</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#clientele">Who We Serve</a></li>
+              <li><a href="the-work.html">The Work</a></li>
+              <li><a href="index.html#resources">Resources</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Locations</h4>
+            <ul>
+              <li>West Palm Beach</li>
+              <li>Palm Beach Island</li>
+              <li>Boca Raton</li>
+              <li>Wellington</li>
+              <li>Jupiter &amp; North Palm</li>
+              <li>Fort Lauderdale</li>
+              <li>Miami</li>
+              <li>Nationwide</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Safebound Moving LLC. Safebound Luxury is a division of Safebound Moving &amp; Storage. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Your request has been received. We'll be in touch within one business day.</div>
+
+  <script src="script.js"></script>
+  <script>
+    // Filter functionality
+    document.querySelectorAll('.work-filter').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.work-filter').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.work-card').forEach(card => {
+          card.style.display = (filter === 'all' || card.dataset.category === filter) ? '' : 'none';
+        });
+        // Maintain grid gap appearance when hiding
+        const grid = document.getElementById('work-grid');
+        const visible = [...grid.querySelectorAll('.work-card')].filter(c => c.style.display !== 'none');
+        grid.style.background = visible.length > 0 ? 'var(--border)' : 'transparent';
+      });
+    });
+  </script>
+
+</body>
+</html>

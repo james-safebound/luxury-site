@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Receiving Warehouses — Safebound Luxury | South Florida FF&E Logistics</title>
+  <meta name="description" content="South Florida's premier receiving warehouse for interior designers and luxury contractors. Climate-controlled storage, white-glove inspection, and FF&E coordination from one facility." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Service Page Specific ── */
+    .service-hero {
+      position: relative;
+      min-height: 72vh;
+      display: flex;
+      align-items: flex-end;
+      overflow: hidden;
+    }
+    .service-hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('img-storage.jpg');
+      background-size: cover;
+      background-position: center 30%;
+      filter: brightness(0.35);
+    }
+    .service-hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(13,13,13,1) 0%, rgba(13,13,13,0.4) 60%, rgba(13,13,13,0.1) 100%);
+    }
+    .service-hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 80px 40px;
+      width: 100%;
+    }
+    .service-breadcrumb {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .service-breadcrumb a { color: var(--gold); }
+    .service-breadcrumb .crumb-sep { opacity: 0.4; }
+    .service-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .service-hero-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(52px, 7vw, 96px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--text);
+      margin-bottom: 28px;
+      max-width: 800px;
+    }
+    .service-hero-headline em { font-style: italic; color: var(--gold); }
+    .service-hero-sub {
+      font-size: 17px;
+      line-height: 1.7;
+      color: rgba(232,228,220,0.75);
+      max-width: 640px;
+      margin-bottom: 40px;
+    }
+    .service-hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    /* ── Service Stats Bar ── */
+    .service-stats {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+    }
+    .service-stats-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      divide-x: 1px solid var(--border);
+    }
+    .service-stat {
+      padding: 32px 0;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+    .service-stat:last-child { border-right: none; }
+    .service-stat-num {
+      display: block;
+      font-family: var(--font-serif);
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+    .service-stat-label {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* ── Intro Section ── */
+    .service-intro {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .service-intro-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .service-intro-left {}
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .section-headline {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .section-headline em { font-style: italic; }
+    .section-body {
+      font-size: 15px;
+      line-height: 1.8;
+      color: rgba(232,228,220,0.7);
+      margin-bottom: 20px;
+    }
+    .service-intro-right {}
+    .feature-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .feature-item:first-child { border-top: 1px solid var(--border); }
+    .feature-icon {
+      width: 36px;
+      height: 36px;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold);
+      font-size: 18px;
+      margin-top: 2px;
+    }
+    .feature-item h4 {
+      font-family: var(--font-serif);
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .feature-item p {
+      font-size: 13px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── What We Do Section ── */
+    .service-what {
+      padding: 100px 0;
+      background: var(--bg-2);
+    }
+    .service-what-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .service-what-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+    .what-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .what-card {
+      background: var(--bg-2);
+      padding: 40px 36px;
+    }
+    .what-num {
+      font-family: var(--font-serif);
+      font-size: 48px;
+      font-weight: 300;
+      color: rgba(201,169,110,0.2);
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+    .what-card h3 {
+      font-family: var(--font-serif);
+      font-size: 22px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+    .what-card p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── Process Section ── */
+    .service-process {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .service-process-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .process-header {
+      max-width: 600px;
+      margin-bottom: 64px;
+    }
+    .process-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .timeline-step {
+      display: grid;
+      grid-template-columns: 80px 1px 1fr;
+      gap: 0 40px;
+      padding: 40px 0;
+      position: relative;
+    }
+    .timeline-step:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      left: 39px;
+      top: 80px;
+      bottom: 0;
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-num {
+      font-family: var(--font-sans);
+      font-size: 32px;
+      font-weight: 300;
+      color: var(--gold);
+      opacity: 0.5;
+      line-height: 1;
+      text-align: right;
+      letter-spacing: 0.05em;
+    }
+    .timeline-line {
+      width: 1px;
+      background: var(--border);
+    }
+    .timeline-content {
+      padding-top: 6px;
+    }
+    .timeline-content h3 {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+    }
+    .timeline-content p {
+      font-size: 14px;
+      line-height: 1.75;
+      color: var(--text-muted);
+      max-width: 580px;
+    }
+
+    /* ── For Who Section ── */
+    .service-for {
+      padding: 100px 0;
+      background: var(--bg-3);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .service-for-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 380px 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .service-for-left h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+    .service-for-left p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .client-type-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--border);
+    }
+    .client-type {
+      background: var(--bg-3);
+      padding: 28px 24px;
+    }
+    .client-type-icon { font-size: 20px; margin-bottom: 10px; }
+    .client-type h4 {
+      font-family: var(--font-serif);
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+    .client-type p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+
+    /* ── FAQ Section ── */
+    .service-faq {
+      padding: 100px 0;
+      background: var(--bg);
+    }
+    .service-faq-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 340px 1fr;
+      gap: 80px;
+    }
+    .faq-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.5vw, 46px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .faq-header p {
+      font-size: 13px;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--border);
+    }
+    .faq-item:first-child { border-top: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 500;
+      text-align: left;
+      padding: 24px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+    .faq-q:hover { color: var(--gold); }
+    .faq-chevron {
+      font-size: 12px;
+      color: var(--gold);
+      transition: transform 0.25s;
+      flex-shrink: 0;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); }
+    .faq-a {
+      display: none;
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      padding-bottom: 24px;
+      max-width: 580px;
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    /* ── CTA Band ── */
+    .service-cta-band {
+      padding: 100px 0;
+      background: var(--bg-2);
+      border-top: 1px solid rgba(201,169,110,0.15);
+      text-align: center;
+    }
+    .service-cta-band h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 5vw, 72px);
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .service-cta-band h2 em { font-style: italic; color: var(--gold); }
+    .service-cta-band p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── Related Services ── */
+    .related-services {
+      padding: 80px 0;
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+    .related-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+    .related-label {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .related-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+      background: var(--border);
+    }
+    .related-card {
+      background: var(--bg);
+      padding: 32px 28px;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: block;
+    }
+    .related-card:hover { background: var(--bg-2); }
+    .related-card-label {
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+    }
+    .related-card h4 {
+      font-family: var(--font-serif);
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+    .related-card p {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--text-muted);
+    }
+    .related-arrow {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--gold);
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .service-stats-inner { grid-template-columns: repeat(2, 1fr); }
+      .service-stat { border-right: none; border-bottom: 1px solid var(--border); }
+      .service-stat:nth-child(odd) { border-right: 1px solid var(--border); }
+      .service-intro-inner { grid-template-columns: 1fr; gap: 48px; }
+      .what-grid { grid-template-columns: 1fr; }
+      .service-for-inner { grid-template-columns: 1fr; gap: 48px; }
+      .service-faq-inner { grid-template-columns: 1fr; gap: 48px; }
+      .related-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 600px) {
+      .service-hero-content { padding: 60px 24px; }
+      .service-stats-inner { grid-template-columns: 1fr 1fr; padding: 0 24px; }
+      .service-intro-inner,
+      .service-what-inner,
+      .service-process-inner,
+      .service-for-inner,
+      .service-faq-inner,
+      .related-inner { padding: 0 24px; }
+      .client-type-grid { grid-template-columns: 1fr; }
+      .related-grid { grid-template-columns: 1fr; }
+      .timeline-step { grid-template-columns: 48px 1px 1fr; gap: 0 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span class="announce-group announce-parent">
+        A division of <a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving &amp; Storage</a>
+      </span>
+|</span>
+      <span class="announce-group">
+        <span class="dot">◆</span> West Palm Beach
+        <span class="sep">·</span> Boca Raton
+        <span class="sep">·</span> Wellington
+      </span>
+|</span>
+      <span class="announce-group">Fully Licensed &amp; Insured · USDOT 2900155</span>
+|
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo logo-img">
+      <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:5615595376" class="nav-phone">☎ 561.559.5376</a>
+      <a href="index.html#contact" class="btn-quote">Request Quote <span>›</span></a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav Drawer -->
+  <div class="mobile-nav">
+    <ul>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="index.html#resources">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="tel:5615595376" class="gold">☎ 561.559.5376</a></li>
+      <li><a href="index.html#contact" class="btn-quote-mobile">Request a Private Quote</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="service-hero">
+    <div class="service-hero-bg"></div>
+    <div class="service-hero-overlay"></div>
+    <div class="service-hero-content">
+      <div class="service-breadcrumb">
+        <a href="index.html">Home</a>
+        <span class="crumb-sep">›</span>
+        <a href="index.html#services">Services</a>
+        <span class="crumb-sep">›</span>
+        <span>Receiving Warehouses</span>
+      </div>
+      <p class="service-eyebrow">— Service · Receiving &amp; Storage</p>
+      <h1 class="service-hero-headline">Your Project's<br /><em>Receiving Hub.</em></h1>
+      <p class="service-hero-sub">80,000 sq. ft. of climate-controlled receiving space. Every piece inspected, documented, and held in perfect condition — ready for your installation schedule, not the vendor's.</p>
+      <div class="service-hero-cta">
+        <a href="index.html#contact" class="btn-primary">Let's Talk <span>→</span></a>
+        <a href="#what-we-do" class="btn-ghost">What We Do <span>↓</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <div class="service-stats">
+    <div class="service-stats-inner">
+      <div class="service-stat">
+        <span class="service-stat-num">80K</span>
+        <span class="service-stat-label">Sq. Ft. Climate-Controlled</span>
+      </div>
+      <div class="service-stat">
+        <span class="service-stat-num">100%</span>
+        <span class="service-stat-label">Pieces Inspected on Arrival</span>
+      </div>
+      <div class="service-stat">
+        <span class="service-stat-num">48hr</span>
+        <span class="service-stat-label">Inspection Reports Delivered</span>
+      </div>
+      <div class="service-stat">
+        <span class="service-stat-num">24/7</span>
+        <span class="service-stat-label">Project Access &amp; Coordination</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Intro -->
+  <section class="service-intro">
+    <div class="service-intro-inner">
+      <div class="service-intro-left">
+        <p class="section-label">— What is a Receiving Warehouse?</p>
+        <h2 class="section-headline">The logistics layer<br />designers <em>rely on.</em></h2>
+        <p class="section-body">A receiving warehouse accepts, inspects, and stores your FF&amp;E — furniture, fixtures, and equipment — on behalf of a designer, architect, or contractor. Vendors ship directly to us, not to the job site. We take custody, photograph the condition, note any damage, and hold your pieces in a climate-controlled environment until you're ready to install.</p>
+        <p class="section-body">For luxury residential and commercial projects in South Florida, this isn't optional — it's how the best projects run. Coordinating dozens of vendors into a single delivery window without a receiving warehouse is, simply, chaos.</p>
+        <p class="section-body">Safebound Luxury operates South Florida's most capable luxury receiving facility, purpose-built for high-end furniture, art, and fine materials.</p>
+      </div>
+      <div class="service-intro-right">
+        <div class="feature-list">
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Climate-Controlled Storage</h4>
+              <p>Temperature and humidity maintained year-round. Safe for fine wood, fabric, art, antiques, and sensitive materials.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Full Piece Inspection &amp; Photography</h4>
+              <p>Every item received is unwrapped, inspected for damage, photographed in detail, and logged before re-wrapping. You'll know the condition of every piece before install day.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Damage Claims Handled</h4>
+              <p>We document damage at the point of receipt — not on install day when it's too late. Vendor claims are filed while evidence is fresh and on your behalf.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Consolidated Delivery</h4>
+              <p>All vendors ship to us. We stage everything and deliver it to your job site in a single coordinated delivery — eliminating the chaos of 20 vendor windows.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon">◈</div>
+            <div>
+              <h4>Real-Time Inventory Access</h4>
+              <p>Know exactly what's arrived, what's pending, and what's been flagged — at any time. Never lose track of a piece again.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- What We Do -->
+  <section class="service-what" id="what-we-do">
+    <div class="service-what-inner">
+      <div class="service-what-header">
+        <p class="section-label">— The Full Scope</p>
+        <h2 class="section-headline">Everything your<br />project <em>requires.</em></h2>
+      </div>
+      <div class="what-grid">
+        <div class="what-card">
+          <div class="what-num">01</div>
+          <h3>Vendor Receiving</h3>
+          <p>We accept freight and parcel shipments from any vendor — national retailers, boutique makers, international freight, and everything in between. Dock-to-door or white-glove carrier, we handle it.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">02</div>
+          <h3>Inspection &amp; Condition Reports</h3>
+          <p>Every piece is opened, inspected under proper lighting, photographed at multiple angles, and logged. You receive a detailed condition report within 48 hours of receipt. No surprises on install day.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">03</div>
+          <h3>Climate-Controlled Storage</h3>
+          <p>Your pieces are re-wrapped and held in our 80,000 sq. ft. climate-controlled facility. Wood, fabric, art, marble — all protected from South Florida's heat and humidity.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">04</div>
+          <h3>Project Staging</h3>
+          <p>Before delivery, our team stages your entire FF&amp;E order by room and installation sequence. Pieces arrive at the job site in exactly the order your team needs them.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">05</div>
+          <h3>White-Glove Delivery &amp; Install</h3>
+          <p>When your schedule is ready, we deliver and place every piece exactly where it belongs — wrapped in moving blankets, carried by specialists, placed without a scratch.</p>
+        </div>
+        <div class="what-card">
+          <div class="what-num">06</div>
+          <h3>Return &amp; Vendor Coordination</h3>
+          <p>Damaged pieces, wrong orders, returns — we coordinate directly with vendors so you don't have to. We handle all outbound freight, pickup scheduling, and documentation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="service-process">
+    <div class="service-process-inner">
+      <div class="process-header">
+        <p class="section-label">— How It Works</p>
+        <h2 class="section-headline">From first shipment<br />to <em>final placement.</em></h2>
+      </div>
+      <div class="process-timeline">
+        <div class="timeline-step">
+          <div class="timeline-num">01</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Project Onboarding</h3>
+            <p>We assign a dedicated project coordinator to your account. You provide vendor lists, project address, and installation timeline. We set up your unique receiving address and inventory portal — vendors get a single point of contact from day one.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">02</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Vendor Shipments Arrive</h3>
+            <p>Vendors ship directly to our facility using your project's receiving address. We accept freight carriers, parcel delivery, fine art shippers, and will-call pickups. Nothing enters the facility without being logged.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">03</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Inspection &amp; Documentation</h3>
+            <p>Each piece is unwrapped, inspected, and photographed. Any damage — however minor — is documented and flagged to you within 48 hours. We initiate vendor claims immediately when damage is found, while documentation is still valid.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">04</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Climate-Controlled Hold</h3>
+            <p>Inspected pieces are re-wrapped in moving blankets or original packaging and stored in our climate-controlled warehouse. Your inventory dashboard reflects real-time status — arrived, pending, flagged, or cleared for delivery.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">05</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>Staged &amp; Ready for Installation</h3>
+            <p>When your project schedule is ready, we pre-stage your entire FF&amp;E order — organized by room, floor, and placement sequence. Our delivery crew arrives on site with everything organized to match your install plan.</p>
+          </div>
+        </div>
+        <div class="timeline-step">
+          <div class="timeline-num">06</div>
+          <div class="timeline-line"></div>
+          <div class="timeline-content">
+            <h3>White-Glove Delivery &amp; Placement</h3>
+            <p>Trained specialists deliver, unwrap, and place each piece exactly as specified. Packing materials are removed, floors and walls are protected throughout, and nothing is left to chance.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Who It's For -->
+  <section class="service-for">
+    <div class="service-for-inner">
+      <div class="service-for-left">
+        <p class="section-label">— Who We Work With</p>
+        <h2>The professionals<br />who run on this.</h2>
+        <p>Receiving warehouses are standard practice for serious luxury projects. Here's who we work with — and why each uses us differently.</p>
+        <a href="index.html#contact" class="btn-primary" style="display:inline-flex;align-items:center;gap:8px;">Let's Talk <span>→</span></a>
+      </div>
+      <div class="client-type-grid">
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Interior Designers</h4>
+          <p>Coordinate multi-vendor FF&amp;E under one roof. Eliminate surprise damage on install day. Deliver every project on schedule and on budget.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Luxury Contractors &amp; Builders</h4>
+          <p>Stage entire home builds and hotel fit-outs from a single facility. Coordinate with GCs and design teams from project start to punch list.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Estate Managers</h4>
+          <p>Ongoing receiving, storage, and placement for estates with multiple properties and continuous acquisition. We operate as your permanent logistics arm.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Hospitality &amp; Developers</h4>
+          <p>FF&amp;E rollouts for hotels, resorts, and multi-unit residential projects. Staged by unit, delivered by floor, installed on schedule.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Luxury Brands &amp; Retail</h4>
+          <p>Receiving, storage, and staging for showrooms, pop-ups, and flagship openings. We handle the logistics while your team focuses on the client experience.</p>
+        </div>
+        <div class="client-type">
+          <div class="client-type-icon">✦</div>
+          <h4>Art Collectors &amp; Galleries</h4>
+          <p>Climate-controlled receiving for fine art, antiques, and collectibles. Full documentation, specialist handling, and installation by trained art handlers.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="service-faq">
+    <div class="service-faq-inner">
+      <div class="faq-header">
+        <p class="section-label">— Common Questions</p>
+        <h2>Everything you want<br />to <em>know.</em></h2>
+        <p style="margin-top:16px;">If you don't see your question answered here, call us directly — we're a phone call, not a form.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-q">
+            What is a receiving warehouse address and how does it work?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">When you onboard with us, we provide a dedicated receiving address tied to your project. All vendors ship to that address instead of the job site. We accept the deliveries, sign for them, and take custody on your behalf. You never need to be present.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            How do you handle damage found at receiving?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">We photograph and document all damage at the point of receipt — before we sign a clear delivery. We notify you within 48 hours and initiate the vendor or freight claim on your behalf. This protects your claim rights far better than discovering damage on install day, when documentation is harder to establish.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            How long can pieces be stored at your facility?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">As long as your project requires. We work with designers and estate managers who have pieces in storage for ongoing projects spanning many months. Monthly storage is billed at a project rate based on your inventory volume.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Can you receive international freight and fine art shippers?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Yes. We work with international freight forwarders, fine art shippers (Crozier, Uovo, Cadogan Tate, etc.), and custom carriers of all kinds. If your piece requires a climate-controlled art shuttle or a crane, we coordinate it. Our dock and facility are equipped for oversized freight.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            Do you offer installation services as well?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Yes — and this is where full-service receiving becomes most valuable. Our team handles delivery and installation of furniture, art hanging, furniture assembly, and room staging. We work directly with your design team or GC so install day runs exactly as planned.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q">
+            What areas of South Florida do you serve?
+            <span class="faq-chevron">▼</span>
+          </button>
+          <div class="faq-a">Our facility is based in West Palm Beach and we serve projects throughout Palm Beach County, Broward County, Miami-Dade, and the Keys. We regularly serve Palm Beach Island, Boca Raton, Naples, Jupiter, and Miami's luxury residential and hospitality corridors.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Band -->
+  <section class="service-cta-band">
+    <div class="container">
+      <p class="section-label" style="justify-content:center;display:flex;">— Start Your Project</p>
+      <h2>Ready to run your<br />project <em>properly?</em></h2>
+      <p>Tell us about your project and we'll walk you through exactly how our receiving service works — no commitment required.</p>
+      <div class="cta-actions">
+        <a href="index.html#contact" class="btn-primary">Let's Talk <span>→</span></a>
+        <a href="tel:5615595376" class="btn-ghost">☎ Call 561.559.5376</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Services -->
+  <section class="related-services">
+    <div class="related-inner">
+      <p class="related-label">— Related Services</p>
+      <div class="related-grid">
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>White-Glove Delivery</h4>
+          <p>Specialist delivery for furniture, art, and high-value pieces — wrapped, placed, and protected throughout.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>FF&amp;E Logistics</h4>
+          <p>End-to-end furniture, fixtures &amp; equipment coordination for residential, hospitality, and commercial projects.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>Installation Services</h4>
+          <p>Furniture assembly, art hanging, and full room staging by trained installation specialists.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+        <a href="#" class="related-card">
+          <div class="related-card-label">Service</div>
+          <h4>Art &amp; Antique Handling</h4>
+          <p>Specialist handling, custom crating, climate transport, and installation for fine art and irreplaceable pieces.</p>
+          <span class="related-arrow">Learn more →</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+          <p>Receiving warehouses, FF&amp;E logistics, white-glove delivery, and installation services for interior designers, builders, estates, and hospitality across South Florida and beyond.</p>
+          <p class="footer-lic">USDOT 2900155 · Fully Licensed &amp; Insured</p>
+          <div class="footer-parent-brand">
+            <span>A division of</span>
+            <a href="https://safeboundmoving.com" target="_blank" rel="noopener" class="footer-parent-link">Safebound Moving &amp; Storage →</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="receiving-warehouses.html">Receiving Warehouses</a></li>
+              <li><a href="#">Luxury Relocations</a></li>
+              <li><a href="#">White-Glove Delivery</a></li>
+              <li><a href="installation-services.html">Installation Services</a></li>
+              <li><a href="designer-services.html">Designer Services</a></li>
+              <li><a href="specialized-storage.html">Specialized Storage</a></li>
+              <li><a href="#">Art Handling</a></li>
+              <li><a href="#">Custom Crating &amp; Rigging</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#clientele">Who We Serve</a></li>
+              <li><a href="index.html#resources">Resources</a></li>
+              <li><a href="the-work.html">The Work</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Locations</h4>
+            <ul>
+              <li>West Palm Beach</li>
+              <li>Palm Beach Island</li>
+              <li>Boca Raton</li>
+              <li>Wellington</li>
+              <li>Jupiter &amp; North Palm</li>
+              <li>Fort Lauderdale</li>
+              <li>Miami</li>
+              <li>Nationwide</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Safebound Moving LLC. Safebound Luxury is a division of Safebound Moving &amp; Storage. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Your request has been received. We'll be in touch within one business day.</div>
+
+  <script src="script.js"></script>
+  <script>
+    // FAQ accordion
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
