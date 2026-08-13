@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources — Safebound Luxury | Luxury Logistics, Receiving &amp; Installation Guides</title>
+  <meta name="description" content="Guides and answers on luxury receiving, storage, white-glove delivery, and installation — written for interior designers, estate managers, builders, and collectors across Florida." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* ── Resources Index Hero ── */
+    .res-hero {
+      padding: 100px 0 64px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+    }
+    .res-hero-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: end;
+    }
+    .res-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .res-hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(48px, 6vw, 84px);
+      font-weight: 300;
+      line-height: 1.0;
+      color: var(--text);
+    }
+    .res-hero h1 em { font-style: italic; color: var(--gold); }
+    .res-hero-right p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: rgba(232,228,220,0.65);
+      margin-bottom: 18px;
+    }
+
+    /* ── Search + Filter Bar ── */
+    .res-toolbar {
+      background: var(--bg-2);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 76px;
+      z-index: 50;
+    }
+    .res-toolbar-inner {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .res-cats {
+      display: flex;
+      gap: 0;
+      overflow-x: auto;
+      flex: 1;
+      min-width: 0;
+      scrollbar-width: none;
+      /* fade the right edge so a cut-off category reads as scrollable, not broken */
+      -webkit-mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent 100%);
+      mask-image: linear-gradient(to right, #000 calc(100% - 48px), transparent 100%);
+    }
+    .res-cats::-webkit-scrollbar { display: none; }
+    .res-cat {
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      padding: 18px 20px;
+      font-family: var(--font-sans);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .res-cat:hover { color: var(--text); }
+    .res-cat.active { color: var(--gold); border-bottom-color: var(--gold); }
+    .res-search {
+      position: relative;
+      flex-shrink: 0;
+    }
+    .res-search input {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 12px;
+      padding: 9px 14px 9px 34px;
+      width: 200px;
+      transition: border-color 0.2s;
+    }
+    .res-search input:focus { outline: none; border-color: rgba(201,169,110,0.4); }
+    .res-search input::placeholder { color: rgba(232,228,220,0.3); }
+    .res-search-icon {
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 12px;
+      color: var(--text-muted);
+      pointer-events: none;
+    }
+
+    /* ── Body ── */
+    .res-body { padding: 72px 0 100px; background: var(--bg); }
+    .res-body-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .res-section-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    /* ── Load more ── */
+    .res-more { text-align: center; margin-top: 56px; }
+    .res-count {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(232,228,220,0.3);
+      margin-top: 20px;
+    }
+
+    /* ── Topic Cluster Nav ── */
+    .res-clusters {
+      background: var(--bg-2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 80px 0;
+    }
+    .res-clusters-inner { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+    .res-clusters-header { max-width: 620px; margin-bottom: 48px; }
+    .res-clusters-header h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(32px, 3.5vw, 46px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .res-clusters-header h2 em { font-style: italic; color: var(--gold); }
+    .res-clusters-header p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+    }
+    .cluster-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .cluster-card {
+      background: var(--bg-2);
+      padding: 32px 26px;
+      display: block;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .cluster-card:hover { background: var(--bg-3); }
+    .cluster-card h3 {
+      font-family: var(--font-serif);
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 10px;
+      transition: color 0.2s;
+    }
+    .cluster-card:hover h3 { color: var(--gold); }
+    .cluster-card p {
+      font-size: 12px;
+      line-height: 1.7;
+      color: var(--text-muted);
+      margin-bottom: 14px;
+    }
+    .cluster-count {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* ── Newsletter ── */
+    .res-subscribe { padding: 88px 0; background: var(--bg); text-align: center; }
+    .res-subscribe-inner { max-width: 620px; margin: 0 auto; padding: 0 40px; }
+    .res-subscribe h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(30px, 3.5vw, 44px);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 16px;
+    }
+    .res-subscribe h2 em { font-style: italic; color: var(--gold); }
+    .res-subscribe p {
+      font-size: 14px;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+    }
+    .subscribe-form { display: flex; gap: 10px; }
+    .subscribe-form input {
+      flex: 1;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: var(--font-sans);
+      font-size: 13px;
+      padding: 14px 16px;
+    }
+    .subscribe-form input:focus { outline: none; border-color: rgba(201,169,110,0.4); }
+    .subscribe-form input::placeholder { color: rgba(232,228,220,0.3); }
+    .subscribe-note {
+      font-size: 11px;
+      color: rgba(232,228,220,0.3);
+      margin-top: 16px;
+    }
+
+    /* ── CMS annotation ── */
+    .cms-note {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 40px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: rgba(232,228,220,0.18);
+      text-align: center;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .res-hero-inner { grid-template-columns: 1fr; gap: 32px; }
+      .cluster-grid { grid-template-columns: repeat(2, 1fr); }
+      .res-toolbar-inner { flex-direction: column; align-items: stretch; gap: 0; padding-bottom: 14px; }
+      .res-search { padding: 0 0 4px; }
+      .res-search input { width: 100%; }
+    }
+    @media (max-width: 600px) {
+      .res-hero-inner, .res-body-inner, .res-clusters-inner, .res-toolbar-inner { padding-left: 24px; padding-right: 24px; }
+      .res-hero { padding: 72px 0 48px; }
+      .cluster-grid { grid-template-columns: 1fr; }
+      .subscribe-form { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement Bar -->
+  <div class="announce-bar">
+    <div class="announce-inner">
+      <span class="announce-group announce-parent">
+        A division of <a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving &amp; Storage</a>
+      </span>
+      <span class="announce-divider">|</span>
+      <span class="announce-group">
+        <span class="dot">◆</span> Serving all of Florida
+      </span>
+      <span class="announce-divider">|</span>
+      <span class="announce-group">Fully Licensed &amp; Insured · USDOT 2900155</span>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <a href="index.html" class="logo logo-img">
+      <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="resources.html" class="active">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+    <div class="nav-right">
+      <a href="tel:5615595376" class="nav-phone">☎ 561.559.5376</a>
+      <a href="index.html#contact" class="btn-quote">Request Quote <span>›</span></a>
+    </div>
+    <button class="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <div class="mobile-nav">
+    <ul>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="index.html#clientele">Clientele</a></li>
+      <li><a href="resources.html">Resources</a></li>
+      <li><a href="the-work.html">The Work</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="tel:5615595376" class="gold">☎ 561.559.5376</a></li>
+      <li><a href="index.html#contact" class="btn-quote-mobile">Request a Private Quote</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero -->
+  <section class="res-hero">
+    <div class="res-hero-inner">
+      <div>
+        <p class="res-eyebrow">— Resources</p>
+        <h1>The luxury<br />logistics <em>library.</em></h1>
+      </div>
+      <div class="res-hero-right">
+        <p>Straight answers on receiving, storage, white-glove delivery, installation, and everything in between — written for the designers, estate managers, builders, and collectors who deal with this every day.</p>
+        <p>No fluff, no gated PDFs. If you have a question about how luxury logistics actually works, the answer should be here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Toolbar -->
+  <!-- WEBFLOW: bind .res-cats to Categories Collection List. Filtering via Finsweet CMS Filter
+       or native Webflow filtering. Search input → Finsweet CMS Filter search field. -->
+  <div class="res-toolbar">
+    <div class="res-toolbar-inner">
+      <div class="res-cats">
+        <button class="res-cat active" data-cat="all">All</button>
+        <button class="res-cat" data-cat="receiving">Receiving &amp; Warehousing</button>
+        <button class="res-cat" data-cat="designer">Designer Resources</button>
+        <button class="res-cat" data-cat="delivery">White-Glove Delivery</button>
+        <button class="res-cat" data-cat="installation">Installation</button>
+        <button class="res-cat" data-cat="storage">Storage</button>
+        <button class="res-cat" data-cat="art">Art &amp; Collections</button>
+        <button class="res-cat" data-cat="commercial">Hospitality &amp; Commercial</button>
+        <button class="res-cat" data-cat="risk">Insurance &amp; Risk</button>
+      </div>
+      <div class="res-search">
+        <span class="res-search-icon">⌕</span>
+        <input type="search" placeholder="Search articles" aria-label="Search articles" />
+      </div>
+    </div>
+  </div>
+
+  <!--
+    ═══════════════════════════════════════════════════════════════
+    WEBFLOW CMS — "Resources" Collection
+    ───────────────────────────────────────────────────────────────
+    Fields:
+      Name                (Plain text)      → article title / H1
+      Slug                (Auto)
+      Category            (Reference → Categories)
+      Excerpt             (Plain text, 200 char) → card + meta description fallback
+      Featured Image      (Image)
+      Body                (Rich Text)       → article body
+      Key Takeaways       (Rich Text)       → TL;DR block, bulleted
+      FAQ Question 1–5    (Plain text)      → FAQPage schema
+      FAQ Answer 1–5      (Rich Text)
+      Author              (Reference → Authors)
+      Published Date      (Date)
+      Read Time           (Number, minutes)
+      Featured            (Switch)          → pins to featured slot
+      Related Services    (Multi-reference → Services)
+      SEO Title           (Plain text)
+      SEO Meta Description(Plain text)
+
+    Categories Collection: Name, Slug, Description, Article Count (or use CMS count)
+    Authors Collection:    Name, Slug, Role, Photo, Bio
+    ═══════════════════════════════════════════════════════════════
+  -->
+
+  <!-- Featured + Grid -->
+  <section class="res-body">
+    <div class="res-body-inner">
+
+      <p class="res-section-label">Featured</p>
+
+      <!-- WEBFLOW: Collection List → Resources, filter Featured = true, limit 1 -->
+      <a href="resource-article.html" class="resource-featured">
+        <div class="resource-featured-img">
+          <img src="img-process.jpg" alt="Receiving and FF&E guide for interior designers" />
+          <span class="resource-category-tag">Designer Resources</span>
+        </div>
+        <div class="resource-featured-body">
+          <p class="resource-meta">June 2026 · 14 min read</p>
+          <h3 class="resource-featured-title">The Complete Receiving &amp; Installation Guide for Interior Designers</h3>
+          <p class="resource-featured-excerpt">Receiving is the most misunderstood — and most expensive — stage of a luxury interior project. This guide covers every step: vendor coordination, warehouse intake, damage inspection, climate storage, delivery sequencing, and white-glove installation. What to demand from a logistics partner, and what most designers only find out when it's already too late.</p>
+          <span class="resource-read-more">Read the full guide <span>→</span></span>
+        </div>
+      </a>
+
+      <p class="res-section-label" style="margin-top:64px;">Latest</p>
+
+      <!-- WEBFLOW: Collection List → Resources, sort Published Date desc, limit 9, 3-col -->
+      <div class="resource-grid">
+
+        <a href="resource-article.html" class="resource-card" data-cat="receiving">
+          <div class="resource-card-img">
+            <img src="img-storage.jpg" alt="What is a receiving warehouse" />
+            <span class="resource-category-tag small">Receiving &amp; Warehousing</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">May 2026 · 8 min read</p>
+            <h4 class="resource-card-title">What Is a Receiving Warehouse? A Guide for Designers &amp; Builders</h4>
+            <p class="resource-card-excerpt">A receiving warehouse accepts, inspects, and holds furniture and fixtures before they reach the job site. Here's how the process works, and why serious projects don't run without one.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="risk">
+          <div class="resource-card-img">
+            <img src="img-fineart.jpg" alt="What high value insurers look for in a logistics provider" />
+            <span class="resource-category-tag small">Insurance &amp; Risk</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">May 2026 · 9 min read</p>
+            <h4 class="resource-card-title">What High-Value Insurers Look For in a Luxury Logistics Provider</h4>
+            <p class="resource-card-excerpt">Before a UHNW client hires a mover, their insurer often weighs in. Here's how carriers evaluate a logistics partner — coverage structure, handling protocols, and documentation standards.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="designer">
+          <div class="resource-card-img">
+            <img src="img-boxes.jpg" alt="How designers use receiving warehouses" />
+            <span class="resource-category-tag small">Designer Resources</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">April 2026 · 6 min read</p>
+            <h4 class="resource-card-title">How Interior Designers Use Receiving Warehouses to Protect Their Clients</h4>
+            <p class="resource-card-excerpt">Damage caught before delivery. Vendors consolidated into one window. Installation staged to your schedule. This is how design firms avoid six-figure mistakes on install day.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="delivery">
+          <div class="resource-card-img">
+            <img src="img-fleet.jpg" alt="White glove delivery vs standard delivery" />
+            <span class="resource-category-tag small">White-Glove Delivery</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">April 2026 · 5 min read</p>
+            <h4 class="resource-card-title">White-Glove Delivery vs. Standard Delivery: What's Actually Different</h4>
+            <p class="resource-card-excerpt">Standard delivery stops at the threshold. White-glove means inspection, placement, assembly, and debris removal. Here's what each one actually includes.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="storage">
+          <div class="resource-card-img">
+            <img src="img-fleet2.jpg" alt="Receiving warehouse vs storage warehouse" />
+            <span class="resource-category-tag small">Storage</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">March 2026 · 5 min read</p>
+            <h4 class="resource-card-title">Receiving Warehouse vs. Storage Warehouse: What's the Difference?</h4>
+            <p class="resource-card-excerpt">They are not the same service. One actively manages intake, inspection, and delivery coordination. The other holds items. Knowing which you need changes the whole project.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="art">
+          <div class="resource-card-img">
+            <img src="img-fineart.jpg" alt="Art handling standards for private collectors" />
+            <span class="resource-category-tag small">Art &amp; Collections</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">March 2026 · 6 min read</p>
+            <h4 class="resource-card-title">Art Handling Standards for Private Collectors: What "Museum-Grade" Means</h4>
+            <p class="resource-card-excerpt">Chain-of-custody documentation, climate-controlled transit, custom crating. These aren't institutional luxuries — they're the baseline a private collector should expect.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="commercial">
+          <div class="resource-card-img">
+            <img src="img-process.jpg" alt="Hotel FF&E logistics" />
+            <span class="resource-category-tag small">Hospitality &amp; Commercial</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">February 2026 · 7 min read</p>
+            <h4 class="resource-card-title">Hotel Openings: How Hospitality Projects Coordinate Multi-Vendor Delivery</h4>
+            <p class="resource-card-excerpt">Hundreds of vendors, thousands of line items, one hard opening date. Here's how luxury hospitality projects sequence receiving, staging, and installation without slipping.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="installation">
+          <div class="resource-card-img">
+            <img src="img-boxes.jpg" alt="Art hanging height standards" />
+            <span class="resource-category-tag small">Installation</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">February 2026 · 4 min read</p>
+            <h4 class="resource-card-title">Art Hanging Heights, Hardware, and Why Installers Get It Wrong</h4>
+            <p class="resource-card-excerpt">57 inches to center is the museum standard — but it's not always the right call. Here's how professional installers decide height, hardware, and layout for a gallery wall.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+        <a href="resource-article.html" class="resource-card" data-cat="storage">
+          <div class="resource-card-img">
+            <img src="img-storage.jpg" alt="Climate controlled storage in Florida" />
+            <span class="resource-category-tag small">Storage</span>
+          </div>
+          <div class="resource-card-body">
+            <p class="resource-meta">January 2026 · 6 min read</p>
+            <h4 class="resource-card-title">Why Florida Humidity Destroys Fine Furniture — and What Actually Prevents It</h4>
+            <p class="resource-card-excerpt">Wood movement, veneer lift, textile mildew, and canvas slack. Florida's climate is uniquely hostile to fine pieces. Here's what real climate control does about it.</p>
+            <span class="resource-read-more small">Read more <span>→</span></span>
+          </div>
+        </a>
+
+      </div>
+
+      <div class="res-more">
+        <a href="#" class="btn-outline">Load More Articles <span>→</span></a>
+        <p class="res-count">Showing 9 of 9 articles</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Topic Clusters -->
+  <!-- WEBFLOW: Collection List → Categories. Each card links to the category page. -->
+  <section class="res-clusters">
+    <div class="res-clusters-inner">
+      <div class="res-clusters-header">
+        <p class="res-eyebrow">— Browse by Topic</p>
+        <h2>Start with the<br />question you <em>have.</em></h2>
+        <p>Each topic is built as a cluster — a foundational guide plus the specific questions that come up around it.</p>
+      </div>
+      <div class="cluster-grid">
+        <a href="#" class="cluster-card">
+          <h3>Receiving &amp; Warehousing</h3>
+          <p>How receiving works, what it costs, when you need it, and how to evaluate a facility.</p>
+          <span class="cluster-count">Foundational guide + 8 articles</span>
+        </a>
+        <a href="#" class="cluster-card">
+          <h3>Designer Resources</h3>
+          <p>Written for design professionals — vendor coordination, COIs, install day, client protection.</p>
+          <span class="cluster-count">Foundational guide + 6 articles</span>
+        </a>
+        <a href="#" class="cluster-card">
+          <h3>Storage</h3>
+          <p>Climate control, private vaulting, wine and vehicle storage, and long-term collection care.</p>
+          <span class="cluster-count">Foundational guide + 7 articles</span>
+        </a>
+        <a href="#" class="cluster-card">
+          <h3>Art &amp; Collections</h3>
+          <p>Handling standards, crating, chain of custody, installation, and conservation logistics.</p>
+          <span class="cluster-count">Foundational guide + 5 articles</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Subscribe -->
+  <section class="res-subscribe">
+    <div class="res-subscribe-inner">
+      <h2>New guides,<br />when they <em>publish.</em></h2>
+      <p>Occasional notes on luxury logistics for designers, estate managers, and collectors. No sales sequences.</p>
+      <form class="subscribe-form" onsubmit="handleSubmit(event)">
+        <input type="email" placeholder="you@example.com" aria-label="Email address" required />
+        <button type="submit" class="btn-primary">Subscribe <span>→</span></button>
+      </form>
+      <p class="subscribe-note">We do not share or sell your information. Unsubscribe any time.</p>
+    </div>
+  </section>
+
+  <p class="cms-note">Webflow CMS Collection · "Resources" · Articles publish via CMS editor</p>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <img src="logo-notag.png" alt="Safebound Luxury" class="logo-png" />
+          <p>Receiving warehouses, specialized storage, white-glove delivery, and installation services for interior designers, builders, estates, and hospitality across Florida and beyond.</p>
+          <p class="footer-lic">USDOT 2900155 · Fully Licensed &amp; Insured</p>
+          <div class="footer-parent-brand">
+            <span>A division of</span>
+            <a href="https://safeboundmoving.com" target="_blank" rel="noopener" class="footer-parent-link">Safebound Moving &amp; Storage →</a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h4>Services</h4>
+            <ul>
+              <li><a href="receiving-warehouses.html">Receiving Warehouses</a></li>
+              <li><a href="#">Luxury Relocations</a></li>
+              <li><a href="#">White-Glove Delivery</a></li>
+              <li><a href="installation-services.html">Installation Services</a></li>
+              <li><a href="designer-services.html">Designer Services</a></li>
+              <li><a href="specialized-storage.html">Specialized Storage</a></li>
+              <li><a href="#">Art Handling</a></li>
+              <li><a href="#">Custom Crating &amp; Rigging</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="index.html#clientele">Who We Serve</a></li>
+              <li><a href="the-work.html">The Work</a></li>
+              <li><a href="resources.html">Resources</a></li>
+              <li><a href="index.html#contact">Contact</a></li>
+              <li><a href="https://safeboundmoving.com" target="_blank" rel="noopener">Safebound Moving</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Locations</h4>
+            <ul>
+              <li>West Palm Beach</li>
+              <li>Palm Beach Island</li>
+              <li>Boca Raton</li>
+              <li>Wellington</li>
+              <li>Jupiter &amp; North Palm</li>
+              <li>Fort Lauderdale</li>
+              <li>Miami</li>
+              <li>Statewide Florida</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Safebound Moving LLC. Safebound Luxury is a division of Safebound Moving &amp; Storage. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <div class="toast" id="toast">Thank you — you're subscribed.</div>
+
+  <script src="script.js"></script>
+  <script>
+    // Category filter (prototype only — Webflow uses Finsweet CMS Filter)
+    document.querySelectorAll('.res-cat').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.res-cat').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const cat = btn.dataset.cat;
+        let shown = 0;
+        document.querySelectorAll('.resource-card').forEach(card => {
+          const match = cat === 'all' || card.dataset.cat === cat;
+          card.style.display = match ? '' : 'none';
+          if (match) shown++;
+        });
+        document.querySelector('.res-count').textContent =
+          `Showing ${shown} of 9 articles`;
+      });
+    });
+  </script>
+
+</body>
+</html>
