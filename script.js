@@ -32,7 +32,7 @@ const observer = new IntersectionObserver((entries) => {
 sections.forEach(s => observer.observe(s));
 
 // Fade-in on scroll
-const fadeEls = document.querySelectorAll('.service-card, .process-step, .clientele-card, .testimonial, .fleet-list li');
+const fadeEls = document.querySelectorAll('.service-card, .process-step, .clientele-card, .fleet-list li');
 
 const fadeObserver = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
@@ -51,7 +51,7 @@ fadeEls.forEach(el => {
 });
 
 document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.service-card, .process-step, .clientele-card, .testimonial, .fleet-list li').forEach(el => {
+  document.querySelectorAll('.service-card, .process-step, .clientele-card, .fleet-list li').forEach(el => {
     el.style.opacity = '0';
     el.style.transform = 'translateY(16px)';
   });
