@@ -6,3 +6,6 @@ logo-transparent.png
 logo-white.png
 logo-white-tagline.png
 *.pages
+
+# Internal working docs — never publish
+content/
