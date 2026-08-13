@@ -3,8 +3,9 @@ const hamburger = document.querySelector('.hamburger');
 const mobileNav = document.querySelector('.mobile-nav');
 
 hamburger.addEventListener('click', () => {
-  mobileNav.classList.toggle('open');
-  document.body.style.overflow = mobileNav.classList.contains('open') ? 'hidden' : '';
+  const open = mobileNav.classList.toggle('open');
+  hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+  document.body.style.overflow = open ? 'hidden' : '';
 });
 
 mobileNav.querySelectorAll('a').forEach(link => {
@@ -76,4 +77,33 @@ window.addEventListener('scroll', () => {
   navbar.style.borderBottomColor = window.scrollY > 10
     ? 'rgba(201,169,110,0.15)'
     : 'rgba(255,255,255,0.07)';
+});
+
+// ── Mobile submenu accordions ──
+document.querySelectorAll('.m-toggle').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const item = btn.closest('.m-item');
+    const open = item.classList.toggle('open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+});
+
+// ── Desktop dropdown aria state ──
+document.querySelectorAll('.nav-item--menu').forEach(item => {
+  const trigger = item.querySelector('a[aria-haspopup]');
+  if (!trigger) return;
+  const set = v => trigger.setAttribute('aria-expanded', v ? 'true' : 'false');
+  item.addEventListener('mouseenter', () => set(true));
+  item.addEventListener('mouseleave', () => set(false));
+  item.addEventListener('focusin',   () => set(true));
+  item.addEventListener('focusout',  e => {
+    if (!item.contains(e.relatedTarget)) set(false);
+  });
+});
+
+// Close any open dropdown on Escape
+document.addEventListener('keydown', e => {
+  if (e.key !== 'Escape') return;
+  const open = document.activeElement?.closest?.('.nav-item--menu');
+  if (open) open.querySelector('a[aria-haspopup]')?.focus();
 });

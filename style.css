@@ -1130,3 +1130,159 @@ textarea { resize: vertical; }
   background: var(--gold);
   color: #0d0d0d;
 }
+
+/* ══════════════════════════════════════════════════════════
+   Nav dropdowns
+   ══════════════════════════════════════════════════════════ */
+
+/* Let nav items fill the navbar height so panels drop from its edge */
+.nav-links { align-self: stretch; align-items: stretch; }
+.nav-links > li { position: relative; display: flex; align-items: center; }
+.nav-links > li > a { display: flex; align-items: center; gap: 7px; height: 100%; }
+
+/* Page-level current state (separate from the scroll-spy .active class) */
+.nav-links a[aria-current="page"] { color: var(--gold); }
+
+.nav-caret {
+  font-size: 7px;
+  line-height: 1;
+  opacity: 0.45;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav-item--menu:hover .nav-caret,
+.nav-item--menu:focus-within .nav-caret { opacity: 1; transform: rotate(180deg); }
+
+.nav-menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(8px);
+  background: var(--bg-2);
+  border: 1px solid var(--border);
+  border-top: 1px solid rgba(201,169,110,0.35);
+  padding: 20px 18px 14px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s;
+  box-shadow: 0 26px 52px rgba(0,0,0,0.55);
+  z-index: 120;
+}
+.nav-item--menu:hover > .nav-menu,
+.nav-item--menu:focus-within > .nav-menu {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.nav-menu-cols {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(196px, 1fr));
+  gap: 0 24px;
+}
+.nav-menu-cols--single { grid-template-columns: minmax(220px, 1fr); }
+
+/* Higher specificity so these beat the uppercase .nav-links a rule */
+.nav-links .nav-menu a {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--text-muted);
+  padding: 9px 12px;
+  border-left: 2px solid transparent;
+  white-space: nowrap;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.nav-links .nav-menu a:hover,
+.nav-links .nav-menu a:focus-visible {
+  color: var(--gold);
+  border-left-color: var(--gold);
+  background: rgba(201,169,110,0.05);
+  outline: none;
+}
+
+.nav-menu-foot {
+  grid-column: 1 / -1;
+  margin-top: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+.nav-links .nav-menu .nav-menu-all {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border-left-color: transparent;
+}
+.nav-links .nav-menu .nav-menu-all:hover {
+  background: transparent;
+  border-left-color: transparent;
+  color: var(--gold-light);
+}
+
+/* ── Mobile submenus ── */
+.m-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-serif);
+  font-size: 24px;
+  font-weight: 300;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.m-toggle .m-plus {
+  font-family: var(--font-sans);
+  font-size: 18px;
+  color: var(--gold);
+  transition: transform 0.22s ease;
+}
+.m-item.open .m-toggle .m-plus { transform: rotate(45deg); }
+/* .mobile-nav ul (0,0,1,1) out-specifies a bare .m-sub, so scope these */
+.mobile-nav .m-sub {
+  display: none;
+  flex-direction: column;
+  gap: 0 !important;
+  margin: 14px 0 4px;
+  padding-left: 14px;
+  border-left: 1px solid var(--border);
+}
+.mobile-nav .m-item.open .m-sub { display: flex; }
+.mobile-nav .m-sub a {
+  font-family: var(--font-sans) !important;
+  font-size: 15px !important;
+  color: var(--text-muted);
+  padding: 9px 0;
+}
+.mobile-nav .m-sub a:hover { color: var(--gold); }
+
+@media (max-width: 1100px) {
+  .nav-links { gap: 22px; }
+  .nav-menu-cols:not(.nav-menu-cols--single) { grid-template-columns: repeat(2, minmax(170px, 1fr)); }
+}
+
+/* ══════════════════════════════════════════════════════════
+   Resources responsive overrides
+   The Resources block is defined later in this file than the
+   @media(max-width:768px) block above, so those overrides were
+   being beaten on source order. These must stay last.
+   ══════════════════════════════════════════════════════════ */
+@media (max-width: 1000px) {
+  .resource-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 768px) {
+  .resource-grid { grid-template-columns: 1fr; }
+  .resource-featured { grid-template-columns: 1fr; }
+  .resource-featured-img { height: 260px; }
+  .resource-featured-body { padding: 32px 26px; }
+  .resource-filters { gap: 8px; }
+}
